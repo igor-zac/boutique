@@ -99,14 +99,28 @@ header h1 {
 
 .quantities {
     width: 130px;
+    align-items: flex-end;
+    justify-content: space-between;
 }
+
+.quantites div {
+    align-items: flex-end;
+}
+
 .quantity {
     justify-content: flex-end;
+    max-height: 40px;
 }
 
 .quantity input {
     width: 30px;
+
 }
+
+/*.quantity p {*/
+/*    margin: 0;*/
+/*    align-self: flex-end;*/
+/*}*/
 
 .quantities button {
     width: 100px;
@@ -121,8 +135,15 @@ input::-webkit-inner-spin-button {
 }
 
 .error {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     color: red;
-    width: 100%;
+    width: 80%;
     text-align: end;
+    display: inline-flex;
+    align-self: flex-end;
+}
+
+.form-client {
+    width: 70%;
+    margin:auto;
 }

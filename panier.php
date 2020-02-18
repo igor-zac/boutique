@@ -116,9 +116,9 @@ $fraisDePort = $total['frais'];
                 <button type="submit" name="recalc" class="btn btn-secondary">Recalculer</button>
             </div>
 
-<!--            <div class="bouton">-->
-<!--                <a class="btn btn-primary" href=""-->
-<!--            </div>-->
+            <div class="bouton">
+                <a class="btn btn-primary" href="infosClient.php">Continuer</a>
+            </div>
             <?php
         }
             ?>
