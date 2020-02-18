@@ -15,7 +15,7 @@
     </head>
     <body>
         <?php include("entete.php"); ?>
-<!-- Inclus le fichier functions.php et appelle ses fonctions pour générer les blocs article de la page -->
+
         <form action="recapCommande.php" method="POST" class="form-client my-5 py-5">
             <div class="form-row">
                 <div class="form-group col-md-6">

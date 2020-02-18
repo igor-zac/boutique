@@ -5,7 +5,9 @@ session_start();
 
 $articles_choisis_catalogue =[];
 
-if(isset($_SESSION['panier'])){
+//Si nous avons un panier en cours et qu'on ne vient pas de valider le passage de la commande,
+// on récupère la liste des articles sélectionnés
+if(isset($_SESSION['panier']) AND !isset($_GET['empty_choice'])){
 
     $articles_choisis = unserialize($_SESSION['panier']);
 
@@ -31,9 +33,10 @@ if(isset($_SESSION['panier'])){
     </head>
     <body>
         <?php include("entete.php"); ?>
-<!-- Inclus le fichier functions.php et appelle ses fonctions pour générer les blocs article de la page -->
+<
         <form action="panier.php" method="GET" class="block">
             <?php
+            //appel de la fonction afficherCatalogue de functions.php pour afficher l'ensemble des articles dispo
             afficherCatalogue($articles_choisis_catalogue);
 
             ?>

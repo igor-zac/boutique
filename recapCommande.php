@@ -47,17 +47,18 @@ foreach ($panier as $article){
 <!doctype html>
 
 <html lang="fr">
-<head>
-    <meta charset="utf-8">
-    <title>Titre de la page</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <head>
+        <meta charset="utf-8">
+        <title>Titre de la page</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="styles.css">
 
-</head>
-<body>
-    <?php include("entete.php"); ?>
-    <!-- Inclus le fichier functions.php et appelle ses fonctions pour générer les blocs article de la page -->
-    <p class="titreRecap mt-5"><u>Votre commande a bien été passée!</u></p>
+    </head>
+    <body>
+        <?php include("entete.php"); ?>
+        <!-- Inclus le fichier functions.php et appelle ses fonctions pour générer les blocs article de la page -->
+        <p class="titreRecap mt-5"><u>Votre commande a bien été passée!</u></p>
 
-</body>
+        <a href="catalogue.php?empty_choice=" class="btn btn-primary">Revenir au catalogue</a>
+    </body>
 </html>
