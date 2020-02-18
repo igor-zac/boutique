@@ -71,6 +71,8 @@ $total = coutTotal($bdd, $articles_choisis);
 $totalPanier = $total['panier'];
 $fraisDePort = $total['frais'];
 
+$_SESSION['total']=$totalPanier*100;
+
 
 
 
@@ -93,21 +95,9 @@ $fraisDePort = $total['frais'];
 
         <?php
         if(!empty($articles_choisis)) {
-//            foreach ($articles_choisis as $article) {
-//
-//                $sql = 'SELECT nom, nomImage, poids, prix FROM produit WHERE nom = \'' . $article . '\'';
-//
-//                $data = $bdd->query($sql)->fetch();
-//                afficheArticles($data, $errorTable, false);
-//            }
-            afficherPanier($bdd, $articles_choisis, $errorTable);
-        } else {
-            ?>
-            <p>Le panier est vide </p>
-            <?php
-        }
 
-        if(!empty($articles_choisis)) { ?>
+            afficherPanier($bdd, $articles_choisis, $errorTable);
+            ?>
             <p class="total"><strong>Prix :</strong> <?= number_format($totalPanier, 2) ?> €</p>
             <p class="total"><strong>Frais de port :</strong> <?= number_format($fraisDePort, 2) ?> €</p>
             <p class="total"><strong>Total commande :</strong> <?= number_format($totalPanier + $fraisDePort, 2) ?> €</p>
@@ -120,8 +110,14 @@ $fraisDePort = $total['frais'];
                 <a class="btn btn-primary" href="infosClient.php">Continuer</a>
             </div>
             <?php
-        }
+
+        } else {
             ?>
+            <p>Le panier est vide </p>
+            <?php
+        }
+        ?>
+
 
         </form>
     </body>

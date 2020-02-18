@@ -20,25 +20,25 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="nom">Nom</label>
-                    <input type="text" class="form-control" id="nom" placeholder="Ex : Bourgeois">
+                    <input type="text" class="form-control" id="nom" name="nom" placeholder="Ex : Bourgeois" required>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="prenom">Prénom</label>
-                    <input type="text" class="form-control" id="prenom" placeholder="Ex : Alexis">
+                    <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Ex : Alexis" required>
                 </div>
             </div>
             <div class="form-group">
                 <label for="adresse">Adresse</label>
-                <input type="text" class="form-control" id="adresse" placeholder="1234 Main St">
+                <input type="text" class="form-control" id="adresse" name="adresse" placeholder="1234 Main St" required>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-8">
                     <label for="ville">Ville</label>
-                    <input type="text" class="form-control" id="ville">
+                    <input type="text" class="form-control" id="ville" name="ville" required>
                 </div>
                 <div class="form-group col-md-4">
                     <label for="cp">Code Postal</label>
-                    <input type="text" class="form-control" id="cp">
+                    <input type="text" class="form-control" id="cp" name="cp" required>
                 </div>
             </div>
             <div class="form-row justify-content-between my-3">

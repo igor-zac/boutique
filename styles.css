@@ -117,10 +117,6 @@ header h1 {
 
 }
 
-/*.quantity p {*/
-/*    margin: 0;*/
-/*    align-self: flex-end;*/
-/*}*/
 
 .quantities button {
     width: 100px;
@@ -146,4 +142,8 @@ input::-webkit-inner-spin-button {
 .form-client {
     width: 70%;
     margin:auto;
+}
+
+.titreRecap {
+    font-size: 1.7rem;
 }
