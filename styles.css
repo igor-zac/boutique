@@ -1,0 +1,128 @@
+/*MISE EN FORME DU HEADER */
+header {
+    width: 100vw;
+    padding: 30px;
+    background-color: grey;
+}
+
+header h1 {
+   text-align: center;
+    font-size: 2.5rem;
+}
+
+.block, .nom_page {
+    width: 80%;
+    max-width: 1200px;
+    padding: 20px;
+    margin: auto;
+    box-sizing: content-box;
+}
+
+/* MISE EN FORME DE CHAQUE SECTION ARTICLE ET DE SON CONTENU */
+.article  {
+
+    display: flex;
+    width: 100%;
+    margin-top:20px;
+    background-color: darkgrey;
+    padding: 10px;
+
+    min-height: 170px;
+}
+
+
+
+.article div{
+    flex-grow: 1;
+}
+
+.article .infosArticles {
+    flex-grow: 3;
+}
+
+.nomArticle {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.poidsArticle {
+    font-size: 1rem;
+}
+
+.image_article {
+    width: 200px;
+    height: 160px;
+}
+
+.prix {
+    border-radius: 50%;
+    background-color: white;
+
+    min-width: 175px;
+    max-width: 175px;
+}
+
+.prix p {
+    display: block;
+    text-align: center;
+    line-height: 150px;
+    font-size: 1.5rem;
+
+}
+
+.check {
+    margin:auto;
+    text-align: center;
+}
+
+.check input {
+
+    width: 20px;
+    height: 20px;
+}
+
+.bouton {
+    padding: 30px;
+    text-align: end;
+}
+
+.total {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 1.2rem;
+    text-align: end;
+}
+
+.total strong {
+    font-weight: bold;
+}
+
+.quantities {
+    width: 130px;
+}
+.quantity {
+    justify-content: flex-end;
+}
+
+.quantity input {
+    width: 30px;
+}
+
+.quantities button {
+    width: 100px;
+    align-self: flex-end;
+
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.error {
+    font-size: 0.7rem;
+    color: red;
+    width: 100%;
+    text-align: end;
+}
