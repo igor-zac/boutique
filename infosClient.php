@@ -1,6 +1,6 @@
 <?php
 
-
+// Formulaire qui récupère les informations du client et renvoie sur la page recapCommande.php
 ?>
 
 <!doctype html>

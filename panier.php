@@ -4,7 +4,7 @@ include("functions.php");
 
 session_start();
 
-$errorTable = [];
+$errorTable = []; //Tableau contenant les erreurs relatives a la saisie des quantités sur les articles
 
 
 $bdd = dbConnect();
@@ -13,27 +13,34 @@ $bdd = dbConnect();
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET'){
     if(isset($_GET['empty_cart'])){
-
+    // Si le champ empty_cart de $_GET est initialisé, on rend le tableau d'articles choisis vide
         $articles_choisis=[];
 
     } elseif (isset($_GET['add'])){
-
+    // Si le champ add est initialisé, alors on arrive depuis la page catalogue.php
         $articles_choisis=[];
 
         if(isset($_GET['articles'])) {
+            /* Chaque article coché a son nom ajouté au tableau $_GET['articles']
+            On initialise articles choisis avec pour chaque article son nom et une quantité à 1 */
             foreach ($_GET['articles'] as $article){
                 $articles_choisis[$article] = ['nom' => $article, 'quantite' => 1];
             }
         }
 
     } elseif (isset($_SESSION['panier'])){
+        // Si add ou empty_cart ne sont pas initialisés, on vérifie si le panier est sauvegardé dans la session
         $articles_choisis = unserialize($_SESSION['panier']);
+        //Si il est stocké, on le déserialize dans $articles_choisis
 
-        if(isset($_GET['delete'])){
+        if(isset($_GET['delete'])){ // Si un bouton supprimé a été cliqué, on enleve l'article correspondant des articles choisis
             unset($articles_choisis[$_GET['delete']]);
         }
 
         foreach ($articles_choisis as $key => $article){
+            /* Pour chacun des articles restants dans le panier, on vérifie la cohérence des quantités choisies
+            En cas d'informations incorrects, on stock la cause de l'erreur dans le tableau $errorTable, la clé du tableau
+            étant le nom de l'article concerné par l'erreur */
             if(isset($_GET[$key])){
                 $getkey = $_GET[$key];
                 if ($getkey > 0){
@@ -53,6 +60,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'){
     }
 
 foreach ($articles_choisis as $article){
+    /* Pour tous les article n'ayant pas d'erreur suite aux vérifs précédentes, on initialise le champ erreur
+    correspondant a ''
+    */
     if(!isset($errorTable[$article['nom']])){
         $errorTable[$article['nom']] = '';
     }
@@ -62,15 +72,16 @@ foreach ($articles_choisis as $article){
 }
 
 
-
+//Après toutes les vérifs, on sérialize le panier et on le stock dans $_SESSION['panier']
 $panier = serialize($articles_choisis);
 $_SESSION['panier'] = $panier;
 
-$total = coutTotal($bdd, $articles_choisis);
+$total = coutTotal($bdd, $articles_choisis); // Calcul du montant des articles et des frais de port
 
 $totalPanier = $total['panier'];
 $fraisDePort = $total['frais'];
 
+//On stock le total du panier dans $_SESSION pour pouvoir le récupérer lors de la validation de la commande
 $_SESSION['total']=$totalPanier*100;
 
 
@@ -95,6 +106,7 @@ $_SESSION['total']=$totalPanier*100;
 
         <?php
         if(!empty($articles_choisis)) {
+            //Si le panier n'est pas vide, on affiche les différents prix, le bouton recalculer et le bouton continuer
 
             afficherPanier($bdd, $articles_choisis, $errorTable);
             ?>
@@ -112,6 +124,7 @@ $_SESSION['total']=$totalPanier*100;
             <?php
 
         } else {
+            // Si le panier est vide, on affiche simplement le message ce-dessous
             ?>
             <p>Le panier est vide </p>
             <?php

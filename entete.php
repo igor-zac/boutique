@@ -36,6 +36,7 @@ function displayActivePage(){
         </li>
         <li class="nav-item">
             <a class="nav-link" href="panier.php?empty_cart=">Vider le panier</a>
+<!--            Renvoie sur le panier en passant par une requete GET avec le champ empty_cart -->
         </li>
     </ul>
 </nav>
